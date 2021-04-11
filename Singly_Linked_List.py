@@ -27,8 +27,7 @@ class Linked_List():
         if prev_node is None:  
             print("The given previous node must inLinkedList.")
             return
-        # Create new node &  
-        # Put in the data  
+        # Create new node & put in the data  
         new_node = Node(new_data)  
         # Make next of new Node as next of prev_node  
         new_node.next = prev_node.next
@@ -49,10 +48,33 @@ class Linked_List():
             last = last.next
         # Change the next of last node 
         last.next =  new_node 
+
+    # Function to delete a node
+    def deleteNode(self,key):
+        temp = self.head
+        # check key to be deleted is a head node
+        if temp is not None:
+            if temp.data == key:
+                self.head = temp.next
+                temp = None
+        # Traverse list until key matches the data in list               
+        while temp is not None:
+            if temp.data == key:
+                break
+            prev = temp
+            temp = temp.next
+        if temp == None:
+            print('inside')
+            return
+        prev.next = temp.next
+        temp = None    
+
 li = Linked_List()
 li.push(5)
 li.push(9)
 li.push(2)
 li.insertAt(li.head.next,7)
 li.append(12)
+li.deleteNode(7)
+li.append(10)
 li.printList()

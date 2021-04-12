@@ -21,7 +21,7 @@ class Stack():
     def peek(self):
         if self.isEmpty():
             raise Exception("Cannot peek from a empty stack..")
-        return self.head.value
+        print("Peek element: ",self.head.next.value)
 
     # To insert value into stack
     def push(self, value):
@@ -39,11 +39,12 @@ class Stack():
             stack.append(temp.value)
             temp = temp.next
             # print(temp.value)
-        print(stack[::-1])    
+        print("Stack: ",stack[::-1])    
 
 st = Stack()
 st.push(1)
 st.push(2)
 st.push(3)
 st.push(4)
+st.peek()
 st.printStack()

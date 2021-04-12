@@ -13,6 +13,7 @@ class Doubly_List():
 
     # Function to insert data at beginning of the list
     def push(self, new_data):
+        # nodes = []
         new_node = Node(data = new_data)
 
         # Point next of new_node as head
@@ -82,9 +83,13 @@ class Doubly_List():
 
     # Function to print the list
     def printList(self, node):
+        nodes = []
         while(node):
-            print(node.data)
+            nodes.append(node.data)
+            # print(node.data)
             node = node.next
+        nodes.append("None")
+        print(nodes)    
 
 obj = Doubly_List(7)
 obj.push(5)

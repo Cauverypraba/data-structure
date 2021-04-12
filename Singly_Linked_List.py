@@ -7,12 +7,6 @@ class Linked_List():
     def __init__(self):
         self.head = None
 
-    def printList(self): 
-        temp = self.head
-        while (temp): 
-            print (temp.data) 
-            temp = temp.next
-
     # Function to insert new data at the beginning
     def push(self, new_data):
         new_node = Node(new_data)
@@ -68,6 +62,17 @@ class Linked_List():
             return
         prev.next = temp.next
         temp = None    
+    
+    def printList(self): 
+        temp = self.head
+        nodes = []
+        while (temp): 
+            nodes.append(temp.data)
+            print (temp.data) 
+            print(nodes)
+            temp = temp.next
+        nodes.append('None')
+        print(nodes)    
 
 li = Linked_List()
 li.push(5)

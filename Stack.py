@@ -29,6 +29,23 @@ class Stack():
         node.next = self.head.next
         self.head.next = node
         self.size += 1        
+    
+    # To remove value from stack
+    def pop(self, key):
+        temp = self.head.next
+        if temp.value == key:
+            self.head.next = temp.next
+            temp = None    
+        while(temp):
+            if temp == key:
+                break
+            prev = temp
+            temp = temp.next
+        if temp == None:
+            return
+        prev.next = temp.next
+        temp = None
+        self.size -= 1    
 
     def printStack(self):
         temp = self.head.next
@@ -47,4 +64,5 @@ st.push(2)
 st.push(3)
 st.push(4)
 st.peek()
+st.pop(4)
 st.printStack()

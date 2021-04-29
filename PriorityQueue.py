@@ -45,35 +45,39 @@ def insert(p):
     array[size] = p
     shiftUp(size)
 
-# # Function to extract maximum element
-# def extractMax():
-#     global size
-#     i = 0
-#     max = array[0]
-#     while i < size:
-#         if array[i] > max:
-#             max = array[i]
-#         i += 1
-#     array.remove(max)
-#     size = size - 1    
-#     shiftDown(1)        
-    # result = array[0]   
-    # Replace the value 
-    # at the root with 
-    # the last leaf
-    # array[0] = array[size]
-    # size = size - 1
-       
-    # Shift down the replaced 
-    # element to maintain the 
-    # heap property
-    # shiftDown(0)
-    # return result
-    # print(array)        
+# Function to extract maximum element
+def extractMax():
+    global size
+    i = 0
+    max = array[0]
+    while i < size:
+        if array[i] > max:
+            max = array[i]
+        i += 1
+    array.remove(max)
+    size = size - 1    
+    shiftDown(1)                
+
+# Function to extract minimum element
+def extractMin():
+    global size
+    i = 0
+    min = array[0]
+    while i < size:
+        if array[i] < min:
+            min = array[i]
+        i += 1
+    array.remove(min)
+    size = size - 1    
+    shiftDown(1)
 
 # Function to get maximum element
 # def getMax():
+#     print(array[0])
 
+# Function to get minimum element
+# def getMin():
+#     print(array[size])
 
 def swap(i, j) :  
     temp = array[i]
@@ -88,8 +92,11 @@ insert(31)
 insert(7)
 insert(11)
 insert(13)
-insert(7)
+insert(2)
 # shiftDown(20)
 extractMax()
+extractMin()
+getMax()
+getMin()
 print(array)
 

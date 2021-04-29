@@ -16,16 +16,11 @@ def rightChild(i):
 
 # Function to shiftUp the heap priority
 def shiftUp(i):
-    # print('___',i)
     while (i > 0 and array[parent(i)] < array[i]) :
-        print('inside')
         # Swap parent and current node
         swap(parent(i), i)
-        # print('###',parent(i), i)
         # Update i to parent of i
         i = parent(i)
-        # print('ii', i)
-        # print(array)
 
 # Function to shiftDown the heap priority
 def shiftDown(i):

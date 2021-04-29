@@ -39,12 +39,11 @@ def shiftDown(i):
         shiftDown(maxIndex)
 
 # Function to insert element into heap with priority
-# def insert(p):
-#     global size
-#     size += 1
-#     array[size] = p
-#     shiftUp(size)
-#     print('p',p)
+def insert(p):
+    global size
+    size += 1
+    array[size] = p
+    shiftUp(size)
 
 # # Function to extract maximum element
 # def extractMax():

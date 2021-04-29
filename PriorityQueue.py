@@ -79,6 +79,13 @@ def getMax():
 def getMin():
     print(array[size])
 
+# Function to remove elements from a heap
+def remove(i):
+    global size
+    array.remove(i)
+    size -= 1
+    shiftUp(size)
+
 def swap(i, j) :  
     temp = array[i]
     array[i] = array[j]
@@ -94,9 +101,10 @@ insert(11)
 insert(13)
 insert(2)
 # shiftDown(20)
-extractMax()
-extractMin()
-getMax()
-getMin()
+# extractMax()
+# extractMin()
+# getMax()
+# getMin()
+remove(31)
 print(array)
 

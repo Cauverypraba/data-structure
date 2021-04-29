@@ -71,13 +71,13 @@ def extractMin():
     size = size - 1    
     shiftDown(1)
 
-# Function to get maximum element
-# def getMax():
-#     print(array[0])
+#Function to get maximum element
+def getMax():
+    print(array[0])
 
-# Function to get minimum element
-# def getMin():
-#     print(array[size])
+#Function to get minimum element
+def getMin():
+    print(array[size])
 
 def swap(i, j) :  
     temp = array[i]

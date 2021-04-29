@@ -56,7 +56,8 @@ def extractMax():
         i += 1
     array.remove(max)
     size = size - 1    
-    shiftDown(1)                
+    shiftDown(1)
+    print("After extracting maximum element from heap: ", array)                
 
 # Function to extract minimum element
 def extractMin():
@@ -70,6 +71,7 @@ def extractMin():
     array.remove(min)
     size = size - 1    
     shiftDown(1)
+    print("After extracting minimum element from heap: ", array)
 
 #Function to get maximum element
 def getMax():
@@ -79,12 +81,23 @@ def getMax():
 def getMin():
     print(array[size])
 
+# Function to change priority of an element
+def changePriority(i, p):
+    old_p = array[i]
+    array[i] = p
+    if old_p < p:
+        shiftUp(i)
+    else:
+        shiftDown(i)
+    print("After changing the priority for a given element: ", array)        
+
 # Function to remove elements from a heap
 def remove(i):
     global size
     array.remove(i)
     size -= 1
-    shiftUp(size)
+    shiftUp(i)
+    print("After removing an element from heap: ", array) 
 
 def swap(i, j) :  
     temp = array[i]
@@ -92,7 +105,7 @@ def swap(i, j) :
     array[j] = temp
 
 insert(45)
-insert(43)
+insert(20)
 insert(14)
 insert(12)
 insert(31)
@@ -101,10 +114,11 @@ insert(11)
 insert(13)
 insert(2)
 # shiftDown(20)
-# extractMax()
+extractMax()
 # extractMin()
-# getMax()
+getMax()
 # getMin()
-remove(31)
+changePriority(2, 49)
+remove(14)
 print(array)
 

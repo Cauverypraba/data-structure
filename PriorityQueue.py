@@ -46,32 +46,13 @@ def insert(p):
     shiftUp(size)
 
 # Function to extract maximum element
-def extractMax():
+def poll():
     global size
-    i = 0
-    max = array[0]
-    while i < size:
-        if array[i] > max:
-            max = array[i]
-        i += 1
-    array.remove(max)
+    array[0] = array[size]
     size = size - 1    
-    shiftDown(1)
+    shiftDown(0)
     print("Priority Queue after extracting maximum element: ", array)                
 
-# Function to extract minimum element
-def extractMin():
-    global size
-    i = 0
-    min = array[0]
-    while i < size:
-        if array[i] < min:
-            min = array[i]
-        i += 1
-    array.remove(min)
-    size = size - 1    
-    shiftDown(1)
-    print("Priority Queue after extracting minimum element: ", array)
 
 #Function to get maximum element
 def getMax():
@@ -114,12 +95,10 @@ insert(7)
 insert(11)
 insert(13)
 insert(2)
-# shiftDown(20)
-extractMax()
-# extractMin()
+print('Priority Queue after inserting elements: ',array)
+poll()
 getMax()
-# getMin()
+getMin()
 changePriority(2, 49)
-remove(14)
-print(array)
+remove(12)
 

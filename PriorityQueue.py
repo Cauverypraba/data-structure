@@ -48,10 +48,12 @@ def insert(p):
 # Function to extract maximum element
 def poll():
     global size
+    root = array[0]
     array[0] = array[size]
     size = size - 1    
+    print('shiftdown')
     shiftDown(0)
-    print("Priority Queue after extracting maximum element: ", array)                
+    # return root                
 
 
 #Function to get maximum element
@@ -69,16 +71,17 @@ def changePriority(i, p):
     if old_p < p:
         shiftUp(i)
     else:
-        shiftDown(i)
-    print("Priority Queue after changing the priority for a given element: ", array)        
-
+        shiftDown(i)    
+            
 # Function to remove elements from a heap
 def remove(i):
     global size
     array.remove(i)
-    size -= 1
+    size = size - 1
     shiftUp(i)
-    print("Priority Queue after removing an element: ", array) 
+    # poll()
+    return array
+     
 
 # Function to swap elements
 def swap(i, j) :  
@@ -94,11 +97,29 @@ insert(31)
 insert(7)
 insert(11)
 insert(13)
-insert(2)
+insert(7)
 print('Priority Queue after inserting elements: ',array)
 poll()
+print("Priority Queue after polling highest priority element: ", end = ' ')
+j = 0
+print('size',size)
+while (j <= size) :
+    print(array[j], end = " ")
+    j += 1 
+print()       
 getMax()
 getMin()
 changePriority(2, 49)
-remove(12)
+print("Priority Queue after changing the priority for a given element: ", end=' ')
+k = 0
+while (k <= size) :
+    print(array[k], end = " ")
+    k += 1
+print()    
+remove(11)
+print("Priority Queue after removing an element: ", end=' ')
+l = 0
+while (l <= size) :
+    print(array[l], end = " ")
+    l += 1
 

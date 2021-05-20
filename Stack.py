@@ -31,21 +31,11 @@ class Stack():
         self.size += 1        
     
     # To remove value from stack
-    def pop(self, key):
+    def pop(self):
         if self.isEmpty():
             raise Exception("Cannot pop from a empty stack..")
         temp = self.head.next
-        if temp.value == key:
-            self.head.next = temp.next
-            temp = None    
-        while(temp):
-            if temp == key:
-                break
-            prev = temp
-            temp = temp.next
-        if temp == None:
-            return
-        prev.next = temp.next
+        self.head.next = temp.next
         temp = None
         self.size -= 1    
 
@@ -58,13 +48,16 @@ class Stack():
             stack.append(temp.value)
             temp = temp.next
             # print(temp.value)
-        print("Stack: ",stack[::-1])    
+        print("Stack: ",stack)    
 
 st = Stack()
 st.push(1)
 st.push(2)
 st.push(3)
 st.push(4)
+st.push(5)
+st.push(6)
 st.peek()
-st.pop(4)
+st.pop()
+st.pop()
 st.printStack()

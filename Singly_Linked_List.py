@@ -19,7 +19,7 @@ class Linked_List():
     def insertAt(self, prev_node, new_data):
         # Check if the given prev_node exists  
         if prev_node is None:  
-            print("The given previous node must inLinkedList.")
+            print("The given previous node must in LinkedList.")
             return
         # Create new node & put in the data  
         new_node = Node(new_data)  

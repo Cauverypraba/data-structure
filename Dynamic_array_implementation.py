@@ -14,8 +14,6 @@ class Dynamic():
         return self.A[i]    
     
     def append(self, num):
-        # print(self.n)
-        # print(len(self.A))
         if self.n == self.capacity:
             self.capacity = 2 * self.capacity
             print(self.n, self.capacity)
@@ -26,14 +24,12 @@ class Dynamic():
             self.A = [0] * self.capacity    
             for i in range(0, len(self.B)):
                 self.A[i] = self.B[i]      
-            #print(self.B)
-            #print('#',type(self.A))
         self.A[self.n] = num
         self.n += 1
         return self.A        
     
     def insertAt(self, z, num):
-        n = len(self.A)
+        # n = len(self.A)
         if self.n == self.capacity:
             self.capacity = 2 * self.capacity
             print(self.n, self.capacity)
@@ -46,7 +42,7 @@ class Dynamic():
                 self.A[i] = self.B[i]
         # print(self.A[self.n])    
         self.A[z] = num
-        #self.n += 1
+        self.n += 1
         return self.A
 
     def remove(self, n):

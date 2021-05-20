@@ -60,7 +60,7 @@ class Doubly_List():
             # print('inside', node.data)
             node = node.next
         node.next = new_node
-        node = new_node.prev    
+        new_node.prev = node    
     
     # Function to delete a node
     def deleteNode(self,key):
@@ -96,7 +96,7 @@ obj.push(5)
 obj.push(16)
 obj.push(8)
 obj.append(19)
-obj.deleteNode(19)
+obj.deleteNode(8)
 obj.push(27)
 obj.insertAt(obj.head.next, 4)
 obj.printList(obj.head)

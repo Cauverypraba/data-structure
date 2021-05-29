@@ -4,6 +4,15 @@ class Node:
         self.right = None
         self.val = key
 
+def search(root, key):
+    if root is None or root.val == key:
+        return root
+    else:
+        if  key > root.val:
+            return search(root.right, key)
+    return search(root.left, key)
+
+
 def insertElement(root, key):
     if root is None:
         return Node(key)
@@ -20,7 +29,6 @@ def insertElement(root, key):
             # print('//', root.left)
     print(root.val)        
     return root
-
 
 def inorder(root):
     if root:

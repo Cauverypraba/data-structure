@@ -1,60 +1,80 @@
 class Dynamic():
+    """ Dynamic Array implementation """
     def __init__(self):
         self.capacity = 1
-        self.A = [0] * self.capacity
-        self.B = []
-        self.n = 0
+        self.dynamic_array = [0] * self.capacity
+        self.substitute_array = []
+        self.array_length = 0
         
     def len(self):
-        return self.n
+        """
+        Method to get the length of array 
+        returns: int
+        """
+        return self.array_length
     
-    def getItem(self, i):
-        if not 0 <= i <self.n:
-            return IndexError('i is out of bound')
-        return self.A[i]    
+    def getItem(self, element):
+        """
+        Method to get particular item from an array
+        param: element: int
+        returns: int
+        """
+        if not 0 <= element <self.array_length:
+            return IndexError('Element is out of bound')
+        return self.dynamic_array[element]    
     
-    def append(self, num):
-        if self.n == self.capacity:
-            self.capacity = 2 * self.capacity
-            print(self.n, self.capacity)
-            self.B = [0] * self.capacity
-            for i in range(0, len(self.A)):
-                self.B[i] = self.A[i]
-                print(self.B)
-            self.A = [0] * self.capacity    
-            for i in range(0, len(self.B)):
-                self.A[i] = self.B[i]      
-        self.A[self.n] = num
-        self.n += 1
-        return self.A        
+    def append(self, element):
+        """
+        Method to add element at last of an array, 
+        if length is greater than capacity calls resize() to increase the length
+        param: element: int
+        returns: list
+        """
+        if self.array_length == self.capacity: 
+            self.resize(2 * self.capacity)
+        self.dynamic_array[self.array_length] = element
+        self.array_length += 1
+        return self.dynamic_array        
     
-    def insertAt(self, z, num):
-        # n = len(self.A)
-        if self.n == self.capacity:
-            self.capacity = 2 * self.capacity
-            print(self.n, self.capacity)
-            self.B = [0] * self.capacity
-            for i in range(0, len(self.A)):
-                self.B[i] = self.A[i]
-                print(self.B)
-            self.A = [0] * self.capacity    
-            for i in range(0, len(self.B)):
-                self.A[i] = self.B[i]
-        # print(self.A[self.n])    
-        self.A[z] = num
-        self.n += 1
-        return self.A
+    def insertAt(self, index, element):
+        """
+        Method to insert element at particular index
+        params: index, element: int, int
+        returns: list
+        """
+        if self.array_length == self.capacity:    
+            self.resize(2 * self.capacity)
+        self.dynamic_array[index] = element
+        self.array_length += 1
+        return self.dynamic_array
 
-    def remove(self, n):
-        if self.n > self.capacity:
+    def remove(self, index):
+        """
+        Method to remove element in an array
+        param: index: int
+        returns: array
+        """
+        if self.array_length > self.capacity:
             print("Only elements within the range can be deleted")
-        self.A.pop(n)
-        return self.A        
-obj = Dynamic()
-print(obj.append(13))
-print(obj.append(22))
-print(obj.append(6))
-print(obj.append(18))
-print(obj.insertAt(7,20))
-print(obj.remove(7))
-#print(obj.insertAt(0,25),'insertAt')
+        self.dynamic_array.pop(index)
+        return self.dynamic_array       
+
+    def resize(self, new_cap):
+        """
+        Method to increase the size of array 
+        """
+        self.substitute_array = [0] * new_cap
+        for iter in range(self.array_length):  
+            self.substitute_array[iter] = self.dynamic_array[iter] 
+             
+        self.dynamic_array = self.substitute_array
+        self.capacity = new_cap
+    
+if __name__ == '__main__':    
+    obj = Dynamic()
+    obj.append(13)
+    obj.append(22)
+    obj.append(6)
+    obj.append(18)
+    obj.insertAt(7,20)
+    obj.remove(7)
